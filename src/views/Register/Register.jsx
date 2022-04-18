@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Layout, Input, Form, Button, Divider, message, notification } from "antd";
-import { UserOutlined, LockOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Layout, Input, Form, Button, Divider, message, notification, Select } from "antd";
+import { UserOutlined, LockOutlined, EyeInvisibleOutlined, EyeTwoTone, UserAddOutlined } from '@ant-design/icons';
 import '../../style/view-style/login.scss'
 import { withRouter } from 'react-router'
 import { Link } from "react-router-dom";
+import { Option } from "antd/lib/mentions";
 
 // class Login extends Component {
 //     state = {
@@ -149,12 +150,27 @@ export default class Login extends Component {
                                 ></Input>
                             </Form.Item>
                             <Form.Item>
+                                <Input
+                                    placeholder='name'
+                                    prefix={<UserAddOutlined />}
+                                />
+                            </Form.Item>
+                            <Form.Item>
                                 <Input.Password
                                     placeholder='password'
                                     prefix={<LockOutlined />}
                                     iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                                 />
                             </Form.Item>
+
+                            <Form.Item label="用户类型：">
+                                <Select defaultValue="student" style={{ width: 120 }}>
+                                    <Option value="student">学生</Option>
+                                    <Option value="teacher">教师</Option>
+                                    <Option value="admin">管理员</Option>
+                                </Select>
+                            </Form.Item>
+
                             <Form.Item>
                                 <Button
                                     type='primary'

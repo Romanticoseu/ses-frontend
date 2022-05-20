@@ -18,6 +18,7 @@ export default function List() {
     ])
     // 分页
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10, total: 10 })
+    const temp = 1
 
     const columns = [
         {
